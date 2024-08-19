@@ -16,12 +16,14 @@ body{
    height: 320px;
    border: 1px solid #ccc;
    overflow: hidden;
+   border-radius: 15px; /* 圆角 */
 }
 
 .grid{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 5px;
+    border-radius: 10px; /* 圆角 */
 }
 
 .cell{
@@ -33,6 +35,7 @@ body{
     justify-content: center;
     font-size: 1.5em;
     color: #000;
+    border-radius: 5px; /* 圆角 */
 }
 
 .score-container{
@@ -97,6 +100,7 @@ body{
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
+    border-radius: 5px; /* 圆角 */
 }
 
 #game-over{
@@ -111,6 +115,7 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border-radius: 10px; /* 圆角 */
 }
 
 .grid-cell[data-value]{
