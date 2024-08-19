@@ -167,6 +167,50 @@ document.addEventListener('DOMContentLoaded', () =>{
             move(event.key);
         }
     });
+
+    // 添加触摸事件监听
+    let xDown = null;
+    let yDown = null;
+
+    document.addEventListener('touchstart', handleTouchStart, false);
+    document.addEventListener('touchmove', handleTouchMove, false);
+
+    function handleTouchStart(evt) {
+        const firstTouch = evt.touches[0];
+        xDown = firstTouch.clientX;
+        yDown = firstTouch.clientY;
+    };
+
+    function handleTouchMove(evt) {
+        if (!xDown || !yDown) {
+            return;
+        }
+
+        let xUp = evt.touches[0].clientX;
+        let yUp = evt.touches[0].clientY;
+
+        let xDiff = xDown - xUp;
+        let yDiff = yDown - yUp;
+
+        if (Math.abs(xDiff) > Math.abs(yDiff)) { // 确定是水平滑动还是垂直滑动
+            if (xDiff > 0) {
+                move('ArrowLeft'); // 向左滑动
+            } else {
+                move('ArrowRight'); // 向右滑动
+            }
+        } else {
+            if (yDiff > 0) {
+                move('ArrowUp'); // 向上滑动
+            } else {
+                move('ArrowDown'); // 向下滑动
+            }
+        }
+
+        // 重置 xDown 和 yDown
+        xDown = null;
+        yDown = null;
+    };
+
     document.getElementById('restart-btn').addEventListener('click', restartGame);
 
     initializeGame();
