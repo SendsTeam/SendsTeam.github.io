@@ -18,7 +18,10 @@ body{
    overflow: hidden;
    border-radius: 15px; /* 圆角 */
    padding: 15px; /* 增加内边距 */
-   box-sizing: unset;
+}
+
+body .game-container {
+    box-sizing: content-box;
 }
 
 .grid{
